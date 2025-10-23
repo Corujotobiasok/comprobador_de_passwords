@@ -20,7 +20,6 @@
       --danger: #ff4d4d;
       --safe: #aef1e2;
       --safe-dark: #7ad1be;
-      /* color más oscuro para hover */
       --font: "Montserrat", sans-serif;
     }
 
@@ -28,21 +27,19 @@
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
+      height: 100%;
       margin: 0;
-      padding: 2rem;
+      padding: 0;
+    }
+
+    body {
       background-color: var(--bg);
       color: var(--fg);
       font-family: var(--font);
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
       min-height: 100vh;
-      font-family: "Montserrat", sans-serif;
-    }
-
-    button {
-      font-family: "Montserrat", sans-serif;
     }
 
     main {
@@ -52,6 +49,8 @@
       padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(18, 60, 61, 0.4);
+      margin: 2rem auto;
+      flex-grow: 1;
     }
 
     h1 {
@@ -89,7 +88,6 @@
       font-size: 1rem;
     }
 
-    /* Botón de mostrar/ocultar */
     .toggle-password {
       position: absolute;
       right: 0.6rem;
@@ -163,6 +161,23 @@
       text-decoration: underline;
     }
 
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #888;
+      background: transparent;
+    }
+
+    footer a {
+      color: var(--safe);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--safe-dark);
+    }
+
     input::-ms-reveal,
     input::-ms-clear {
       display: none;
@@ -182,21 +197,47 @@
     <p>Verifica si tu contraseña aparece en
       <code><a href="https://github.com/dw0rsec/rockyou.txt/tree/master" target="_blank">rockyou.txt</a></code>, una
       base de datos usada por hackers.</p>
-    <form method="post" autocomplete="off"> <label for="pw">Contraseña</label>
-      <div class="password-container"> <input id="pw" type="password" name="password" required> <button type="button"
-          id="togglePw" class="toggle-password" title="Mostrar u ocultar contraseña"> <i class="fi fi-rr-eye"></i>
-        </button> </div> <button type="submit">Analizar</button>
-    </form> {% if result == "vulnerable" %} <div class="bad"> <strong>⚠️ VULNERABLE:</strong> Tu contraseña "<strong>{{
-        password|e }}</strong>" aparece en <em>rockyou.txt</em>. <div style="margin-top:0.6rem"><em>Descripción:</em> {{
-        rockyou_desc }}</div>
-    </div> {% elif result == "no_vulnerable" %} <div class="ok"> <strong>✅ NO VULNERABLE:</strong> Tu contraseña no está
-      en la base de datos. </div> {% endif %} <p class="note"> Esta herramienta no guarda tus datos. Si tu contraseña es
-      vulnerable, cámbiala por una más segura. </p>
-  </main>
-  <script> const pwField = document.getElementById("pw"); const toggleBtn = document.getElementById("togglePw"); const icon = toggleBtn.querySelector("i"); toggleBtn.addEventListener("click", () => { const isPassword = pwField.type === "password"; pwField.type = isPassword ? "text" : "password"; icon.className = isPassword ? "fi fi-rr-eye-crossed" : "fi fi-rr-eye"; }); </script>
-  <footer style="position: absolute; bottom: 0; margin-bottom: 20px;">Desarrollado por <a
-      style=" text-decoration: none;" href="https://portfoliocorujotobias.vercel.app/" target="_blank">Corujo Tobias</a>
-  </footer>
-</body>
 
+    <form method="post" autocomplete="off">
+      <label for="pw">Contraseña</label>
+      <div class="password-container">
+        <input id="pw" type="password" name="password" required>
+        <button type="button" id="togglePw" class="toggle-password" title="Mostrar u ocultar contraseña">
+          <i class="fi fi-rr-eye"></i>
+        </button>
+      </div>
+      <button type="submit">Analizar</button>
+    </form>
+
+    {% if result == "vulnerable" %}
+    <div class="bad">
+      <strong>⚠️ VULNERABLE:</strong> Tu contraseña "<strong>{{ password|e }}</strong>" aparece en <em>rockyou.txt</em>.
+      <div style="margin-top:0.6rem"><em>Descripción:</em> {{ rockyou_desc }}</div>
+    </div>
+    {% elif result == "no_vulnerable" %}
+    <div class="ok">
+      <strong>✅ NO VULNERABLE:</strong> Tu contraseña no está en la base de datos.
+    </div>
+    {% endif %}
+
+    <p class="note">Esta herramienta no guarda tus datos. Si tu contraseña es vulnerable, cámbiala por una más segura.</p>
+  </main>
+
+  <footer>
+    Desarrollado por
+    <a href="https://portfoliocorujotobias.vercel.app/" target="_blank">Corujo Tobias</a>
+  </footer>
+
+  <script>
+    const pwField = document.getElementById("pw");
+    const toggleBtn = document.getElementById("togglePw");
+    const icon = toggleBtn.querySelector("i");
+
+    toggleBtn.addEventListener("click", () => {
+      const isPassword = pwField.type === "password";
+      pwField.type = isPassword ? "text" : "password";
+      icon.className = isPassword ? "fi fi-rr-eye-crossed" : "fi fi-rr-eye";
+    });
+  </script>
+</body>
 </html>
