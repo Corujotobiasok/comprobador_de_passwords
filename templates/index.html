@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Comprobador de Contraseñas | Verifica si tu contraseña es segura</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Verifica si tu contraseña aparece en rockyou.txt, una base de datos usada por hackers. Protege tus cuentas y aprende sobre seguridad.">
+  <meta name="keywords" content="contraseña, Contraseña, CONTRASEÑA, password, Password, PASSWORD, verificador de contraseñas, Verificador De Contraseñas, VERIFICADOR DE CONTRASEÑAS, comprobar contraseña, Comprobar Contraseña, COMPROBAR CONTRASEÑA, test de contraseña, Test De Contraseña, TEST DE CONTRASEÑA, analizar password, Analizar Password, ANALIZAR PASSWORD, password vulnerable, Password Vulnerable, PASSWORD VULNERABLE, contraseña hackeada, Contraseña Hackeada, CONTRASEÑA HACKEADA, ciberseguridad, Ciberseguridad, CIBERSEGURIDAD, proteger cuentas, Proteger Cuentas, PROTEGER CUENTAS, contraseña comprometida, Contraseña Comprometida, CONTRASEÑA COMPROMETIDA, contraseña débil, Contraseña Débil, CONTRASEÑA DÉBIL, contraseña segura, Contraseña Segura, CONTRASEÑA SEGURA, seguridad informática, Seguridad Informática, SEGURIDAD INFORMÁTICA, herramienta de seguridad, Herramienta De Seguridad, HERRAMIENTA DE SEGURIDAD, verificación online de contraseña, Verificación Online De Contraseña, VERIFICACIÓN ONLINE DE CONTRASEÑA, cómo saber si mi contraseña es segura, Cómo Saber Si Mi Contraseña Es Segura, CÓMO SABER SI MI CONTRASEÑA ES SEGURA, probar password online, Probar Password Online, PROBAR PASSWORD ONLINE, test de seguridad de password, Test De Seguridad De Password, TEST DE SEGURIDAD DE PASSWORD, riesgo de contraseña, Riesgo De Contraseña, RIESGO DE CONTRASEÑA, filtrar contraseña, Filtrar Contraseña, FILTRAR CONTRASEÑA, proteger password, Proteger Password, PROTEGER PASSWORD, contraseña expuesta, Contraseña Expuesta, CONTRASEÑA EXPUESTA, contraseña filtrada, Contraseña Filtrada, CONTRASEÑA FILTRADA, seguridad de cuentas, Seguridad De Cuentas, SEGURIDAD DE CUENTAS, cómo comprobar contraseña, Cómo Comprobar Contraseña, CÓMO COMPROBAR CONTRASEÑA, verificador password, Verificador Password, VERIFICADOR PASSWORD, herramienta online de contraseñas, Herramienta Online De Contraseñas, HERRAMIENTA ONLINE DE CONTRASEÑAS, contraseñas en riesgo, Contraseñas En Riesgo, CONTRASEÑAS EN RIESGO, verificar password online, Verificar Password Online, VERIFICAR PASSWORD ONLINE, test de password seguro, Test De Password Seguro, TEST DE PASSWORD SEGURO, análisis de contraseña, Análisis De Contraseña, ANÁLISIS DE CONTRASEÑA, comprobar si mi password fue hackeado, Comprobar Si Mi Password Fue Hackeado, COMPROBAR SI MI PASSWORD FUE HACKEADO, verificación de seguridad, Verificación De Seguridad, VERIFICACIÓN DE SEGURIDAD, cómo proteger mi contraseña, Cómo Proteger Mi Contraseña, CÓMO PROTEGER MI CONTRASEÑA, test online de seguridad de contraseñas, Test Online De Seguridad De Contraseñas, TEST ONLINE DE SEGURIDAD DE CONTRASEÑAS, contraseña fuerte, Contraseña Fuerte, CONTRASEÑA FUERTE, test de fortaleza de contraseña, Test De Fortaleza De Contraseña, TEST DE FORTALEZA DE CONTRASEÑA, riesgo de password, Riesgo De Password, RIESGO DE PASSWORD, análisis password online, Análisis Password Online, ANÁLISIS PASSWORD ONLINE, verificador de cuentas, Verificador De Cuentas, VERIFICADOR DE CUENTAS, comprobar seguridad de cuentas, Comprobar Seguridad De Cuentas, COMPROBAR SEGURIDAD DE CUENTAS, seguridad password, Seguridad Password, SEGURIDAD PASSWORD, herramienta para probar password, Herramienta Para Probar Password, HERRAMIENTA PARA PROBAR PASSWORD, test de password débil, Test De Password Débil, TEST DE PASSWORD DÉBIL, verificación de contraseña comprometida, Verificación De Contraseña Comprometida, VERIFICACIÓN DE CONTRASEÑA COMPROMETIDA, comprobar si mi password es segura, Comprobar Si Mi Password Es Segura, COMPROBAR SI MI PASSWORD ES SEGURA, cómo analizar password, Cómo Analizar Password, CÓMO ANALIZAR PASSWORD, contraseñas filtradas, Contraseñas Filtradas, CONTRASEÑAS FILTRADAS, analizar seguridad de contraseña, Analizar Seguridad De Contraseña, ANALIZAR SEGURIDAD DE CONTRASEÑA, verificar contraseña comprometida, Verificar Contraseña Comprometida, VERIFICAR CONTRASEÑA COMPROMETIDA, test de password expuesto, Test De Password Expuesto, TEST DE PASSWORD EXPUESTO, herramienta de análisis de contraseñas, Herramienta De Análisis De Contraseñas, HERRAMIENTA DE ANÁLISIS DE CONTRASEÑAS">
+  <meta name="author" content="Corujo Tobias">
+  <link rel="stylesheet"
+    href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+    :root {
+      --bg: #0a0a0a;
+      --fg: #f0f0f0;
+      --accent: #123c3d;
+      --accent-hover: #14575a;
+      --danger: #ff4d4d;
+      --safe: #aef1e2;
+      --safe-dark: #7ad1be;
+      /* color más oscuro para hover */
+      --font: "Montserrat", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem;
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: var(--font);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    button {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    main {
+      width: 100%;
+      max-width: 500px;
+      background-color: #1a1a1a;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(18, 60, 61, 0.4);
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--safe);
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: #ccc;
+    }
+
+    label {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .password-container {
+      position: relative;
+      width: 100%;
+    }
+
+    input[type="password"],
+    input[type="text"] {
+      width: 100%;
+      padding: 0.8rem 2.8rem 0.8rem 0.8rem;
+      margin-top: 0.4rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #2a2a2a;
+      color: var(--fg);
+      font-size: 1rem;
+    }
+
+    /* Botón de mostrar/ocultar */
+    .toggle-password {
+      position: absolute;
+      right: 0.6rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--safe);
+      font-size: 1.3rem;
+      cursor: pointer;
+      padding: 0.3rem;
+      margin-top: -2px;
+      transition: color 0.3s ease;
+    }
+
+    .toggle-password:hover {
+      color: var(--safe-dark);
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 0.8rem;
+      background-color: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .ok,
+    .bad {
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+
+    .ok {
+      background-color: var(--accent);
+      color: var(--safe);
+      border: 1px solid var(--safe);
+    }
+
+    .bad {
+      background-color: #402020;
+      color: var(--danger);
+      border: 1px solid var(--danger);
+    }
+
+    .note {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    code {
+      background-color: #2a2a2a;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      color: var(--safe);
+    }
+
+    a {
+      color: var(--safe);
+      text-decoration: underline;
+    }
+
+    input::-ms-reveal,
+    input::-ms-clear {
+      display: none;
+    }
+
+    input::-webkit-credentials-auto-fill-button,
+    input::-webkit-clear-button,
+    input::-webkit-password-toggle-button {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Comprobador de Contraseñas</h1>
+    <p>Verifica si tu contraseña aparece en
+      <code><a href="https://github.com/dw0rsec/rockyou.txt/tree/master" target="_blank">rockyou.txt</a></code>, una
+      base de datos usada por hackers.</p>
+    <form method="post" autocomplete="off"> <label for="pw">Contraseña</label>
+      <div class="password-container"> <input id="pw" type="password" name="password" required> <button type="button"
+          id="togglePw" class="toggle-password" title="Mostrar u ocultar contraseña"> <i class="fi fi-rr-eye"></i>
+        </button> </div> <button type="submit">Analizar</button>
+    </form> {% if result == "vulnerable" %} <div class="bad"> <strong>⚠️ VULNERABLE:</strong> Tu contraseña "<strong>{{
+        password|e }}</strong>" aparece en <em>rockyou.txt</em>. <div style="margin-top:0.6rem"><em>Descripción:</em> {{
+        rockyou_desc }}</div>
+    </div> {% elif result == "no_vulnerable" %} <div class="ok"> <strong>✅ NO VULNERABLE:</strong> Tu contraseña no está
+      en la base de datos. </div> {% endif %} <p class="note"> Esta herramienta no guarda tus datos. Si tu contraseña es
+      vulnerable, cámbiala por una más segura. </p>
+  </main>
+  <script> const pwField = document.getElementById("pw"); const toggleBtn = document.getElementById("togglePw"); const icon = toggleBtn.querySelector("i"); toggleBtn.addEventListener("click", () => { const isPassword = pwField.type === "password"; pwField.type = isPassword ? "text" : "password"; icon.className = isPassword ? "fi fi-rr-eye-crossed" : "fi fi-rr-eye"; }); </script>
+  <footer style="position: absolute; bottom: 0; margin-bottom: 20px;">Desarrollado por <a
+      style=" text-decoration: none;" href="https://portfoliocorujotobias.vercel.app/" target="_blank">Corujo Tobias</a>
+  </footer>
+</body>
+
+</html>
